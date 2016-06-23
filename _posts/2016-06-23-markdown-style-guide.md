@@ -1,4 +1,9 @@
-# Markdown 编写风格指南
+---
+layout: post
+title:  "Markdown 编写风格指南"
+date:   2016-06-23 22:19:17 +0800
+categories: markdown style
+---
 
 这是一篇总结性的文章, 主要结合自己的实际定义一些符合习惯的 Markdown 编写指南,
 主要参考了以下文章
