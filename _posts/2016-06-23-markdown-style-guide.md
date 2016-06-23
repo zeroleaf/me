@@ -52,26 +52,26 @@ categories: markdown style
 如果列表中的每个元素都是单行的内容, 则列表中不应该包含有空行; 
 否则, 每个元素中都加一个空行. 如:
 
-``` markdown
+~~~ markdown
 - item 1
 - item 2
 - item 3
-```
+~~~
 
 以及
 
-``` markdown
+~~~ markdown
 -   item that
     is wrapped
 
 -   item 2
 
 -   item 3
-```
+~~~
 
 如果一个列中中的元素包含有多个段落, 则段落之间也应包含空行. 如:
 
-``` Markdown
+~~~ markdown
 -   item 1.
 
     Paragraph.
@@ -79,11 +79,11 @@ categories: markdown style
 -   item 2
 
 -   item 3
-```
+~~~
 
 以及多层嵌套:
 
-``` markdown
+~~~ markdown
 -   item 1
 
     - item 11
@@ -93,7 +93,7 @@ categories: markdown style
 -   item 2
 
 -   item 3
-```
+~~~
 
 ## 表格
 
@@ -107,12 +107,12 @@ categories: markdown style
 
 一个好的表格示例如下:
 
-``` markdown
+~~~ markdown
 | h    | Long header |
 | ---- | ----------- |
 | abc  | def         |
 | abc2 | def2        |
-```
+~~~
 
 ## 分离连续
 
@@ -123,7 +123,7 @@ categories: markdown style
 - 引用
 - 列表之后跟随的额外代码块
 
-``` markdown
+~~~ markdown
 - list
 - list
 
@@ -131,6 +131,6 @@ categories: markdown style
 
     code outside list
     code outside list
-```
+~~~
 
 
