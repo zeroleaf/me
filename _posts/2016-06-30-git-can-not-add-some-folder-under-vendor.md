@@ -15,15 +15,35 @@ git ls-files --stage | grep 160000
 
 ## 解决方案
 
+### 移除 `.git`
+
 一个简单(但不优雅)的处理方案是, 移除掉那些文件夹下的 `.git` 文件夹, 让这些不被识别为 submodule,
+可通过以下的命令来移除:
+
+~~~ sh
+# zsh
+rm -rf vendor/**/.git
+
+# bash
+find vendor/ -type d -name ".git" -exec rm -rf {} \;
+~~~
+
 然后执行:
 
-~~~ bash
+~~~ sh
 git rm --cached -r vendor
 git add vendor
 ~~~
 
 即可.
+
+### 添加 `.gitignore` 匹配模式
+
+在 `.gitignore` 中添加如下的匹配模式
+
+~~~ .gitignore
+/vendor/**/.git
+~~~
 
 ## 参考
 
