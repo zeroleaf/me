@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Apiblueprint"
-date:   2016-07-05 22:08:46
-categories: apiblueprint
+title:  "API Blueprint"
+date:   2016-07-05 22:37:26 +0800
+categories: tool api
 ---
 
 ## 术语
@@ -25,12 +25,12 @@ categories: apiblueprint
 - `Property`: *Entity* 的字段
 - `Request`: 包含一个指定 HTTP 请求的 *Payload*
 - `Response`: 包含一个指定 HTTP 响应的 *Payload*
-- `Resource`: 
-- `Resource Model`: 
+- `Resource`:
+- `Resource Model`:
 - `Resource Set`:
 - `Trait`:
 - `Schema`:
-- `URI template`: 
+- `URI template`:
 
 详见 [Glossary of Terms](https://apiblueprint.org/documentation/glossary.html).
 
