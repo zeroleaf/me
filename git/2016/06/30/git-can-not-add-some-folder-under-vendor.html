@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>zeroleaf</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>Git 无法添加 vendor 下的某些文件夹</title>
+  <meta name="description" content="有时, git 会无法添加 vendor 下的某些文件夹, 即使通过 git add -f vendor 也无法添加,通过 git status 也没有关于那些文件夹的状态追踪. 一般来说, 是这些文件夹(通常是一个 git 库)里面包含了 .git 文件夹, 它被识别为了 git 的 submodule, 列出...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="zeroleaf.com/">
+  <link rel="canonical" href="zeroleaf.com/git/2016/06/30/git-can-not-add-some-folder-under-vendor.html">
   <link rel="alternate" type="application/rss+xml" title="zeroleaf" href="zeroleaf.com/feed.xml">
 </head>
 
@@ -55,145 +54,65 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Git 无法添加 vendor 下的某些文件夹</h1>
+    <p class="post-meta"><time datetime="2016-06-30T19:32:33+08:00" itemprop="datePublished">Jun 30, 2016</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jul 13, 2016</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>有时, git 会无法添加 <em>vendor</em> 下的某些文件夹, 即使通过 <code class="highlighter-rouge">git add -f vendor</code> 也无法添加,
+通过 <code class="highlighter-rouge">git status</code> 也没有关于那些文件夹的状态追踪. 一般来说, 是这些文件夹(通常是一个 git 库)
+里面包含了 <code class="highlighter-rouge">.git</code> 文件夹, 它被识别为了 git 的 <strong>submodule</strong>, 列出这些 submodule 可以使用:</p>
 
-        <h2>
-          <a class="post-link" href="/html/2016/07/13/html-input.html">HTML Input 标签</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 12, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/ios/2016/07/12/javascript-jump-to-app-in-the-appstore.html">IOS 浏览器跳转到 AppStore 上指定的 App</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 9, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/javascript/jquery/2016/07/09/jquery.html">JQuery</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 9, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/nginx/2016/07/09/nginx-faqs.html">Nginx 常见问题</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 7, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/log/monolog/2016/07/07/monolog.html">Monolog</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 6, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/mysql/2016/07/06/mysql-field-mutiple-value.html">Mysql 多值字段存储</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 5, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/tool/api/2016/07/05/apiblueprint.html">API Blueprint</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 5, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/tool/navicat/2016/07/05/navicat.html">Navicat</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 5, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/tmux/2016/07/05/tmux.html">Tmux</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 4, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/2016/07/04/stateless-api.html">无状态 API 请求</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 1, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/redis/2016/07/01/redis.html">Redis</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 30, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/git/2016/06/30/git-can-not-add-some-folder-under-vendor.html">Git 无法添加 vendor 下的某些文件夹</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 30, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/laravel/csrf/2016/06/30/laravel-csrf.html">Laravel Csrf</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 24, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/php/composer/2016/06/24/composer.html">Composer</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 23, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/markdown/style/2016/06/23/markdown-style-guide.html">Markdown 编写风格指南</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 23, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/ruby/gem/2016/06/23/fix-can-not-install-gem.html">解决无法安装 Gem 的问题</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git ls-files --stage | grep 160000
+</code></pre>
 </div>
+
+<h2 id="section">解决方案</h2>
+
+<h3 id="git">移除 <code class="highlighter-rouge">.git</code></h3>
+
+<p>一个简单(但不优雅)的处理方案是, 移除掉那些文件夹下的 <code class="highlighter-rouge">.git</code> 文件夹, 让这些不被识别为 submodule,
+可通过以下的命令来移除:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c"># zsh</span>
+rm -rf vendor/<span class="k">**</span>/.git
+
+<span class="c"># bash</span>
+find vendor/ -type d -name <span class="s2">".git"</span> -exec rm -rf <span class="o">{}</span> <span class="se">\;</span>
+</code></pre>
+</div>
+
+<p>然后执行:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>git rm --cached -r vendor
+git add vendor
+</code></pre>
+</div>
+
+<p>即可.</p>
+
+<h3 id="gitignore-">添加 <code class="highlighter-rouge">.gitignore</code> 匹配模式</h3>
+
+<p>在 <code class="highlighter-rouge">.gitignore</code> 中添加如下的匹配模式</p>
+
+<pre><code class="language-.gitignore">/vendor/**/.git
+</code></pre>
+
+<h2 id="section-1">参考</h2>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/24472596/git-fatal-pathspec-is-in-submodule">http://stackoverflow.com/questions/24472596/git-fatal-pathspec-is-in-submodule</a></li>
+  <li><a href="http://stackoverflow.com/questions/23882794/git-cannot-push-folder-part-of-another-git-project">http://stackoverflow.com/questions/23882794/git-cannot-push-folder-part-of-another-git-project</a></li>
+  <li><a href="https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md">https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md</a></li>
+</ul>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>

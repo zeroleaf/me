@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JQuery</title>
+  <meta name="description" content="基础">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="zeroleaf.com/javascript/jquery/2016/07/09/jquery.html">
+  <link rel="alternate" type="application/rss+xml" title="zeroleaf" href="zeroleaf.com/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">zeroleaf</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">JQuery</h1>
+    <p class="post-meta"><time datetime="2016-07-09T20:21:19+08:00" itemprop="datePublished">Jul 9, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="section">基础</h2>
+
+<h3 id="section-1">文档准备好的时候执行代码</h3>
+
+<p>原生的 JavaScript 的实现方式:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">alert</span><span class="p">(</span> <span class="s2">"welcome"</span> <span class="p">);</span>
+
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>但是这种载入方式, 要等所有图片都加载完毕之后才会执行. 因此为了在文档准备好的时候
+尽早的执行代码, 使用如下的代码:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// Your code here.</span>
+
+<span class="p">});</span>
+
+<span class="c1">// 或者更精简的方式</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"ready!"</span> <span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>NOTE: 不管是上述的哪种方式, 代码只会执行一次(即在文档对应事件触发时), 
+可以使用多个 <code class="highlighter-rouge">$(function () {})</code>, 但里面的代码会在文档准备就绪的时候 <strong>顺序执行</strong>.</p>
+
+<h2 id="section-2">核心</h2>
+
+<h3 id="vs-">$ vs $()</h3>
+
+<p>JQuery 主要有 2 种方法:</p>
+
+<ul>
+  <li><strong>对象方法</strong>, 定义在 <code class="highlighter-rouge">$.fn</code> 命名空间上(本质上为 <code class="highlighter-rouge">proptotype</code>), 可以与选择器一起工作</li>
+  <li><strong>工具方法</strong>, 定义在 <code class="highlighter-rouge">$</code> 命名空间下, 不能与选择器一起工作</li>
+</ul>
+
+<h3 id="section-3">防止命名冲突</h3>
+
+<p>默认的, JQuery 使用 <code class="highlighter-rouge">$</code> 作为 JQuery 的别名, 而如果使用的其他类库也是用了该别名的话,
+就会造成命名冲突.</p>
+
+<p>以下以 $ 引用其他类库的功能为目的, 阐述解决冲突的办法.</p>
+
+<h4 id="section-4">非冲突模式</h4>
+
+<p><strong>定义新的别名</strong></p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">$j</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>这样就可以使用 <code class="highlighter-rouge">$j</code> 来代替 <code class="highlighter-rouge">$</code> 了.</p>
+
+<p><strong>不定义新的别名</strong></p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+ 
+<span class="nx">jQuery</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">$</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 然后在该作用域里即可安全地使用 $</span>
+    <span class="nx">$</span><span class="p">(</span> <span class="s2">"div"</span> <span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>或者使用一个立即执行的函数表达式:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">$</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Your jQuery code here, using the $</span>
+<span class="p">})(</span> <span class="nx">jQuery</span> <span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="section-5">在其他类库之前加载</h4>
+
+<p>这种情况下 $ 会被其他的定义给覆盖, 因此不用做其他特殊的操作, 不用别名而且 JQuery
+来操作即可. 如:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">jQuery</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">jQuery</span><span class="p">(</span> <span class="s2">"div"</span> <span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="section-6">属性</h3>
+
+<p>一般来说, 元素的属性包含有对应用来说有用的信息, 因此获取和设置这些值就相当重要.
+JQuery 可以使用 <code class="highlighter-rouge">.attr()</code> 方法来设置和获取属性.</p>
+
+<ul>
+  <li><strong>set</strong>: .attr(‘key’, ‘val’)</li>
+  <li><strong>get</strong>: .attr(‘key’)</li>
+</ul>
+
+<p>返回的值为 key 对应的 val <strong>字符串</strong>, 如果指定的 key 不存在, 则返回 <code class="highlighter-rouge">undefined</code>.</p>
+
+<h3 id="section-7">选择元素</h3>
+
+<p>选择元素主要通过 <em>选择器</em>, JQuery 支持的选择器见之后的选择器章节.</p>
+
+<h4 id="section-8">测试选择是否包含有任何元素</h4>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"div.foo"</span> <span class="p">).</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>由于选择器总是返回一个对象, 因此直接判断是不行的, 必须使用 <code class="highlighter-rouge">lenght</code> 属性来判断.</p>
+
+<h4 id="section-9">存储选择的结果</h4>
+
+<p>默认的, JQuery 不缓存任何的元素, 因此如果反复使用同一个选择器, 则可考虑使用本地变量存储选择的结果.
+但需要注意的是, 如果之后 DOM 结构发生了变化, 选择的结果并不会同步的发生变化.
+如果需要, 使用选择器重新选择即可.</p>
+
+<h3 id="section-10">选择结果的处理</h3>
+
+<h4 id="getter--setter">Getter &amp; Setter</h4>
+
+<p>一个 JQuery 的方式可以用来读取或者设置选择的值. 当方法调用的时候带有一个参数值, 则是设置其值;
+当一个方法调用的时候不带参数, 则是获取其值. 
+<strong>设置影响的是选择中的所有结果, 而获取则只取选择中第一个结果的值, <code class="highlighter-rouge">text()</code> 方法除外.</strong></p>
+
+<p>Setter 返回的是一个 JQuery 对应, 因此可以链式的调用. 而 Getter 返回的是你获取的实际的值, 
+因此一般不可链式调用. 同时, 在链式调用的时候可以使用 <code class="highlighter-rouge">.end()</code> 函数来结束最近一次的过滤并返回之前选择的结果. 如:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="s2">"#content"</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="s2">"h3"</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">eq</span><span class="p">(</span> <span class="mi">2</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">html</span><span class="p">(</span> <span class="s2">"new text for the third h3!"</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">end</span><span class="p">()</span> <span class="c1">// Restores the selection to all h3s in #content</span>
+    <span class="p">.</span><span class="nx">eq</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">html</span><span class="p">(</span> <span class="s2">"new text for the first h3!"</span> <span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="section-11">操纵元素</h3>
+
+<p>完整的操作元素的 API 见 <a href="http://api.jquery.com/category/manipulation/">http://api.jquery.com/category/manipulation/</a>.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.addClass()</code>: 添加 class</li>
+  <li><code class="highlighter-rouge">.hasClass()</code>: 判断结果集中是否有 <strong>任意一个元素</strong> 含有指定的 class</li>
+  <li><code class="highlighter-rouge">.removeClass()</code>: 移除结果集中每个元素的一个, 多个或者所有的 class</li>
+  <li><code class="highlighter-rouge">.toggleClass()</code>: 为结果集中的每个元素添加或者移除指定的 class, 根据当前元素的状态</li>
+  <li><code class="highlighter-rouge">.attr()</code>: 获取结果集中第一个元素指定属性的值或者给结果集中的每个元素设置属性</li>
+  <li><code class="highlighter-rouge">.removeAttr()</code>: 移除结果集中的每个元素的属性</li>
+  <li><code class="highlighter-rouge">.prop()</code>: 或者第一个元素的特性值, 或者设置一个或多个特性值 (特性: 如 selected, checked 等)</li>
+  <li><code class="highlighter-rouge">.removeProp()</code>: 移除结果集中每个元素的一个特性</li>
+  <li><code class="highlighter-rouge">.after()</code>: 在匹配元素之后插入指定的内容(做为兄弟节点)</li>
+  <li><code class="highlighter-rouge">.insertAfter()</code>: 与 <code class="highlighter-rouge">.after</code> 功能一直, 只是语法使用上的差异</li>
+  <li><code class="highlighter-rouge">.append()</code>: 在匹配元素的尾部插入指定的内容(做为子元素)</li>
+  <li><code class="highlighter-rouge">.appendTo()</code>: 与 <code class="highlighter-rouge">.append</code> 功能一致, 只是语法使用上的差异</li>
+  <li><code class="highlighter-rouge">.prepend()</code>: 与 <code class="highlighter-rouge">.append</code> 类似, 但是插入的是首部</li>
+  <li><code class="highlighter-rouge">.prependTo()</code>: 与 <code class="highlighter-rouge">.prepend</code> 功能一致, 只是语法使用上的差异</li>
+  <li><code class="highlighter-rouge">.before()</code>: 类似 <code class="highlighter-rouge">.after</code>, 但是在之前的位置</li>
+  <li><code class="highlighter-rouge">.insertBefore()</code>: 与 <code class="highlighter-rouge">.before</code> 功能一致, 只是语法使用上的差异</li>
+  <li><code class="highlighter-rouge">.clone()</code>: 创建一份匹配结果集的深拷贝(会复制后代元素)</li>
+  <li><code class="highlighter-rouge">.css()</code>: 获取匹配结果集中第一个元素的计算属性值或者给匹配的所有元素设置一个或多个属性值</li>
+  <li><code class="highlighter-rouge">.html()</code>: 获取结果集中第一个元素的 HTML 内容或者设置每个元素的 HTML 内容</li>
+  <li><code class="highlighter-rouge">.detach()</code>: 从 DOM 中移除匹配的结果集</li>
+  <li><code class="highlighter-rouge">.empty()</code>: 从 DOM 中移除匹配结果集中每个元素的所有子节点</li>
+  <li><code class="highlighter-rouge">.remove()</code>: 从 DOM 中移除结果集中的元素, 与 <code class="highlighter-rouge">.detach</code> 之间的区别在于该方法会移除事件和相关的数据</li>
+  <li><code class="highlighter-rouge">.height()</code>: 获取结果集中第一个元素的计算高度或者设置每个元素的高度</li>
+  <li><code class="highlighter-rouge">.width()</code>: 同上, 但相对的是宽度</li>
+  <li><code class="highlighter-rouge">.innerHeight()</code>: 获取结果集中第一个元素的计算 innerHeight (包括 padding 但不包含 border)或者设置每个元素的 innerHeight</li>
+  <li><code class="highlighter-rouge">.innerWidth()</code>: 同上, 但相对的是 innerWidth</li>
+  <li><code class="highlighter-rouge">.outerHeight()</code>: 获取结果集中第一个元素的计算 outerHeight (包括 padding, border 和可选的 margin)或者设置每个元素的 outerHeight</li>
+  <li><code class="highlighter-rouge">.outerWidth()</code>: 同上, 但对应的是 outerWidth</li>
+  <li><code class="highlighter-rouge">jQuery.cssNumber</code>:</li>
+  <li><code class="highlighter-rouge">jQuery.htmlPrefilter()</code>:</li>
+  <li><code class="highlighter-rouge">.offset()</code>: 获取第一个元素当前的坐标, 或者设置每个元素相对文档的偏移, 相对文档</li>
+  <li><code class="highlighter-rouge">.position()</code>: 类似 <code class="highlighter-rouge">.offset</code>, 但是相对的是偏移的父元素</li>
+  <li><code class="highlighter-rouge">.replaceWith()</code>: 用提供的新 content 来替换结果集中的每个元素, 返回移除的元素</li>
+  <li><code class="highlighter-rouge">.replaceAll()</code>: 将每个 target 元素替换为匹配的结果</li>
+  <li><code class="highlighter-rouge">.scrollLeft()</code>: 获取第一个元素水平滚动条的位置或者设置每个元素的值</li>
+  <li><code class="highlighter-rouge">.scrollTop()</code>: 类似 <code class="highlighter-rouge">.scrollLeft</code>, 但对应的是垂直方向的滚动条</li>
+  <li><code class="highlighter-rouge">.text()</code>: 获取文本, 包含元素的后代元素的文本或者设置文本</li>
+  <li><code class="highlighter-rouge">.val()</code>: 或者第一个元素的值或者设置每个元素的值(一般对 input 元素而言)</li>
+  <li><code class="highlighter-rouge">.wrap()</code>: 结果集中的每个元素包上一个指定的 HTML 结构</li>
+  <li><code class="highlighter-rouge">.unwrap()</code>: 移除匹配结果集中每个元素的父元素</li>
+  <li><code class="highlighter-rouge">.wrapAll()</code>: 在匹配的结果集的最外面包上一个指定的 HTML 结构</li>
+  <li><code class="highlighter-rouge">.wrapInner()</code>: 在匹配的结果集中的每个元素的 <strong>内容</strong> 上包上一个指定的 HTML 结构</li>
+</ul>
+
+<h4 id="section-12">创建元素</h4>
+
+<p>通过 JQuery 可以很方便的创建 HTML 元素:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="s2">"&lt;p&gt;This is a new paragraph&lt;/p&gt;"</span> <span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span> <span class="s2">"&lt;li class=\"new\"&gt;new list item&lt;/li&gt;"</span> <span class="p">);</span>
+
+<span class="nx">$</span><span class="p">(</span> <span class="s2">"&lt;a/&gt;"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">html</span><span class="p">:</span> <span class="s2">"This is a &lt;strong&gt;new&lt;/strong&gt; link"</span><span class="p">,</span>
+    <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"new"</span><span class="p">,</span>
+    <span class="na">href</span><span class="p">:</span> <span class="s2">"foo.html"</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="jquery-">JQuery 对象</h3>
+
+<p>通过 JQuery 选择器方法选择的都是 JQuery 对象, 一般可认为它是一个集合对象,
+即不管是通过 id 选择器(最多只能有一个匹配结果)或类选择器(可能有多个匹配结果),
+返回的都是同一对象(实现了良好的封装, 对外统一), 该对象包含有如下的一些字段:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">context</code>:</li>
+  <li><code class="highlighter-rouge">length</code>: 结果集中包含的结果数</li>
+  <li><code class="highlighter-rouge">prevObject</code>:</li>
+  <li>基于索引的对象, 索引基于 0, 数量依据 length 决定</li>
+</ul>
+
+<h4 id="section-13">获取指定索引的对象</h4>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">headings</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"h1"</span> <span class="p">);</span>
+ 
+<span class="c1">// 获取指定索引位置的对象, 返回的仍旧是个 JQuery 对象</span>
+<span class="kd">var</span> <span class="nx">firstHeading</span> <span class="o">=</span> <span class="nx">headings</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+
+<span class="c1">// 获取指定索引位置的对象, 但返回的是 JS 原生对象</span>
+<span class="kd">var</span> <span class="nx">firstHeadingElem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"h1"</span> <span class="p">).</span><span class="nx">get</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="c1">// 或</span>
+<span class="kd">var</span> <span class="nx">firstHeadingElem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"h1"</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">];</span>
+</code></pre>
+</div>
+
+<h4 id="section-14">全等比较</h4>
+
+<p>JQuery 会对选择结果创建一个包装对象, 这些包装对象都是唯一的, 
+因此即使通过相同的选择器, 选择的结果也包含完全相同的 DOM 元素, 全等比较的结果也是 <strong>false</strong>.</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">logo1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">logo2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">)</span> <span class="o">===</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">)</span> <span class="p">);</span> <span class="c1">// alerts "false"</span>
+</code></pre>
+</div>
+
+<p>如果需要比较具体的元素, 使用 <code class="highlighter-rouge">.get()</code> 方法:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">$logo1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">logo1</span> <span class="o">=</span> <span class="nx">$logo1</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">$logo2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#logo"</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">logo2</span> <span class="o">=</span> <span class="nx">$logo2</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+
+<span class="nx">alert</span><span class="p">(</span> <span class="nx">logo1</span> <span class="o">===</span> <span class="nx">logo2</span> <span class="p">);</span> <span class="c1">// alerts "true"</span>
+</code></pre>
+</div>
+
+<h3 id="section-15">遍历</h3>
+
+<p>通过选择器选择出一个 JQuery 对象之后就可以遍历其中包含的元素了,
+遍历一般可分为 3 个部分: 父节点, 子节点, 兄弟节点. JQuery 提供了大量的方法来完成该任务,
+值得注意的是, 这些方法都可以提供一个 <strong>可选的选择器</strong>, 
+一些可以使用其他的 JQuery 对象来过滤其中的元素.</p>
+
+<p>相关方法:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.add()</code>: 创建一个新的 JQuery 对象, 附加选择匹配的对象</li>
+  <li><code class="highlighter-rouge">.addBack()</code>: 添加堆栈中元素集合到当前集合，可选一个选择性的过滤选择器</li>
+  <li><code class="highlighter-rouge">.children()</code>: 获取结果集中每个元素的子元素, 可选地, 指定一个选择器过滤</li>
+  <li><code class="highlighter-rouge">.closest()</code>: 对于结果集中的每个元素, 获取与选择器匹配的第一个元素, 从该元素开始, 并遍历该元素 DOM 中的所有祖先节点</li>
+  <li><code class="highlighter-rouge">.parent()</code>: 获取结果集中每个元素的父元素, 可选地, 指定一个选择器过滤</li>
+  <li><code class="highlighter-rouge">.parents()</code>: 获取结果及中每个元素的祖先元素, 可选地, 指定一个选择器过滤</li>
+  <li><code class="highlighter-rouge">.parentsUntil()</code>: 获取结果集中每个元素的祖先元素, 向上查找但不包含选择器匹配的元素, DOM 节点和 JQuery 对象</li>
+  <li><code class="highlighter-rouge">.contents()</code>: 获取结果集中每个元素的子元素, 包括文本和注释节点</li>
+  <li><code class="highlighter-rouge">.each()</code>: 遍历一个 JQuery 对象, 对结果集中的每个元素执行一个函数</li>
+  <li><code class="highlighter-rouge">.end()</code>: 结束当前链路(chain)最近一次过滤操作, 并返回之前状态的选择结果</li>
+  <li><code class="highlighter-rouge">.eq()</code>: 减少结果集中的元素, 使其只包含指定索引的那个元素</li>
+  <li><code class="highlighter-rouge">.filter()</code>:</li>
+  <li><code class="highlighter-rouge">.find()</code>:</li>
+  <li><code class="highlighter-rouge">.first()</code>:</li>
+  <li><code class="highlighter-rouge">.has()</code>:</li>
+  <li><code class="highlighter-rouge">.is()</code>:</li>
+  <li><code class="highlighter-rouge">.last()</code>:</li>
+  <li><code class="highlighter-rouge">.map()</code>:</li>
+  <li><code class="highlighter-rouge">.next()</code>:</li>
+  <li><code class="highlighter-rouge">.nextAll()</code>:</li>
+  <li><code class="highlighter-rouge">.nextUntil()</code>:</li>
+  <li><code class="highlighter-rouge">.not()</code>:</li>
+  <li><code class="highlighter-rouge">.offsetParent()</code>:</li>
+  <li><code class="highlighter-rouge">.prev()</code>:</li>
+  <li><code class="highlighter-rouge">.prevAll()</code>:</li>
+  <li><code class="highlighter-rouge">.prevUntil()</code>:</li>
+  <li><code class="highlighter-rouge">.siblings()</code>:</li>
+  <li><code class="highlighter-rouge">.slice()</code>:</li>
+</ul>
+
+<h3 id="css-">CSS, 样式和尺寸</h3>
+
+<h2 id="section-16">选择器</h2>
+
+<p>JQuery 支持大部分的 CSS3 选择器, 同时附加了一些额外的选择器.
+对于元字符 <code class="highlighter-rouge">!"#$%&amp;'()*+,./:;&lt;=&gt;?@[\]^\</code>{|}~<code class="highlighter-rouge">, 使用 </code>\` 来转意.</p>
+
+<p>具体包括:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">*</code>: 所有元素</li>
+  <li><code class="highlighter-rouge">:animated</code>: 在选择器执行时处于动画阶段的所有元素</li>
+  <li><code class="highlighter-rouge">[name]</code>: 包含有指定的属性名, 可以是任意值</li>
+  <li><code class="highlighter-rouge">[name|=”value”]</code>: 前缀选择器, 选择属性值等于指定字符串或者以指定字符串开始之后的为一个 <code class="highlighter-rouge">-</code></li>
+  <li><code class="highlighter-rouge">[name*=”value”]</code>: 包含选择器, 选择属性值包含有指定字符串的所有元素</li>
+  <li><code class="highlighter-rouge">[name~=”value”]</code>: 单词选择器, 选择属性值包含有指定单词的所有元素, 通过空格来分隔单词</li>
+  <li><code class="highlighter-rouge">[name^=”value”]</code>: 起始选择器, 选择属性值完全地以指定字符串开始</li>
+  <li><code class="highlighter-rouge">[name$=”value”]</code>: 结束选择器, 选择属性值完全地以指定字符串结尾, 比较是大小写敏感的</li>
+  <li><code class="highlighter-rouge">[name=”value”]</code>: 相等选择器, 选择属性值完全地等于指定值</li>
+  <li><code class="highlighter-rouge">[name!=”value”]</code>: 不等选择器, 选择要么不包含有指定属性的, 要么属性值不等于指定值的元素</li>
+  <li><code class="highlighter-rouge">#id</code>: id 选择器, 选择指定 id 的元素</li>
+  <li><code class="highlighter-rouge">.class</code>: 选择所有包含有指定类的元素</li>
+  <li><code class="highlighter-rouge">:button</code>: 选择所有的 button 元素以及 type 为 button 的元素</li>
+  <li><code class="highlighter-rouge">:contains(text)</code>: 选择包含有指定文本的元素</li>
+  <li><code class="highlighter-rouge">ancestor descendant</code>: 后代选择器, ancestor 元素的所有 descendant 元素</li>
+  <li><code class="highlighter-rouge">element</code>: 元素选择器, 指定 tag 名称的元素</li>
+  <li><code class="highlighter-rouge">:empty</code>: 选择所有没有子元素(包括文本节点)的所有元素</li>
+  <li><code class="highlighter-rouge">:disabled</code>: 选择所有 disabled 的元素</li>
+  <li><code class="highlighter-rouge">:enabled</code>: 选择所有 enabled 的元素</li>
+  <li><code class="highlighter-rouge">:focus</code>: 选择当前获得焦点的元素</li>
+  <li><code class="highlighter-rouge">:visible</code>: 选择所有 visible 的元素</li>
+  <li><code class="highlighter-rouge">:checked</code>: 匹配所有 checked 或者 selected 的元素</li>
+  <li><code class="highlighter-rouge">:selected</code>: 选择所有 selected 的元素</li>
+  <li><code class="highlighter-rouge">:even</code>: 偶数选择器, 所有偶数位的元素, 索引基于 0</li>
+  <li><code class="highlighter-rouge">:odd</code>: 基数选择器, 所有奇数位的元素, 索引基于 0</li>
+  <li><code class="highlighter-rouge">:file</code>: 选择所有 type 为 file 的元素</li>
+  <li><code class="highlighter-rouge">:first-child</code>: 选择所有为其父元素的第一个子元素的那些元素</li>
+  <li><code class="highlighter-rouge">:first-of-type</code>: 选择元素名相同的兄弟节点中的第一个元素的那些元素</li>
+  <li><code class="highlighter-rouge">:last-of-type</code>: 选择元素名相同的兄弟节点中的最后一个元素的那些元素</li>
+  <li><code class="highlighter-rouge">:last-child</code>: 选择所有为其父元素的最后一个子元素的元素</li>
+  <li><code class="highlighter-rouge">:only-child</code>: 选择所有是父元素唯一子元素的元素</li>
+  <li><code class="highlighter-rouge">:first-of-type</code>: 选择元素名相同的兄弟节点中的第一个元素的那些元素</li>
+  <li><code class="highlighter-rouge">:nth-of-type()</code>:</li>
+  <li><code class="highlighter-rouge">:nth-last-of-type()</code>:</li>
+  <li><code class="highlighter-rouge">:last-of-type</code>: 选择元素名相同的兄弟节点中的最后一个元素的那些元素</li>
+  <li><code class="highlighter-rouge">:only-of-type</code>: 选择所有有相同标签名称并且没有兄弟节点的所有元素</li>
+  <li><code class="highlighter-rouge">:first</code>: 选择第一个匹配的 DOM 元素</li>
+  <li><code class="highlighter-rouge">:last</code>: 最后一个匹配的元素</li>
+  <li><code class="highlighter-rouge">:eq()</code>: 选择匹配集中指定索引位置的元素</li>
+  <li><code class="highlighter-rouge">:gt()</code>: 结果集中索引大于指定值的所有元素</li>
+  <li><code class="highlighter-rouge">:lt()</code>: 匹配集中索引小于指定值得所有元素</li>
+  <li><code class="highlighter-rouge">:has()</code>: 选择那些至少包含有一个元素与指定选择器匹配的元素</li>
+  <li><code class="highlighter-rouge">:header</code>: 所有 header 元素, 如 h1, h2, h3 之类</li>
+  <li><code class="highlighter-rouge">:hidden</code>: 选择所有 hidden 的元素</li>
+  <li><code class="highlighter-rouge">:image</code>: 选择所有类型为图片的元素</li>
+  <li><code class="highlighter-rouge">:text</code>: 选择素有 type 为 text 的元素</li>
+  <li><code class="highlighter-rouge">:password</code>: 选择所有的 type 为 password 的元素</li>
+  <li><code class="highlighter-rouge">:reset </code>: 选择所有 type 为 reset 的元素</li>
+  <li><code class="highlighter-rouge">:radio</code>: 选择所有 type 为 radio 的元素</li>
+  <li><code class="highlighter-rouge">:submit</code>: 选择所有 type 为 submit 的元素</li>
+  <li><code class="highlighter-rouge">:checkbox</code>: 选择所有类型为 checkbox 的元素</li>
+  <li><code class="highlighter-rouge">:input</code>: 选择所有的 input, textarea, 和 button 元素</li>
+  <li><code class="highlighter-rouge">:lang()</code>: 选择所有指定语言的元素</li>
+  <li><code class="highlighter-rouge">[attributeFilter1][attributeFilter2][attributeFilterN]</code>: 选择满足所有属性过滤的元素</li>
+  <li><code class="highlighter-rouge">selector1, selector2, selectorN</code>: 满足任意一个选择器的元素的集合</li>
+  <li><code class="highlighter-rouge">parent &gt; child</code>: 选择 parent 所有的直接 child 子元素</li>
+  <li><code class="highlighter-rouge">prev + next</code>: 选择所有匹配 next 的同时是 prev 的立即后继兄弟节点的元素</li>
+  <li><code class="highlighter-rouge">prev ~ siblings</code>: 选择 prev 之后所有满足 siblings 过滤的兄弟节点</li>
+  <li><code class="highlighter-rouge">:not()</code>: 选择不满足选择器的所有元素</li>
+  <li><code class="highlighter-rouge">:parent</code>: 选择至少含有一个子元素的元素</li>
+  <li><code class="highlighter-rouge">:root</code>: 选择 document 的根元素</li>
+  <li><code class="highlighter-rouge">:target</code>:</li>
+</ul>
+
+<p>##</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">zeroleaf</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>zeroleaf</li>
+          <li><a href="mailto:zeroleaf021@gmail.com">zeroleaf021@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/zeroleaf"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">zeroleaf</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/zeroleaf021"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">zeroleaf021</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

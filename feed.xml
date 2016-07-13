@@ -1,30 +1,990 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>zeroleaf</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>zeroleaf.com/</link>
+    <atom:link href="zeroleaf.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 14 Jul 2016 00:08:38 +0800</pubDate>
+    <lastBuildDate>Thu, 14 Jul 2016 00:08:38 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.5</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>HTML Input 标签</title>
+        <description>&lt;h2 id=&quot;datetime-local&quot;&gt;datetime-local&lt;/h2&gt;
+
+&lt;p&gt;该类型的 input 可以显示一个自带的日期选择, 同时可以输入小时跟分钟.&lt;/p&gt;
+
+&lt;p&gt;如果想要给该输入框设置默认的时间, 则时间需要满足一定的格式;&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;datetimelocalObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;YYYY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DDThh&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mm&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ms&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中, 如果提供了时间部分的内容, 则 &lt;strong&gt;T&lt;/strong&gt; 是必须的.&lt;/p&gt;
+
+&lt;p&gt;NOTE: PHP 中, T 是一个预定义的时间格式, 表示本机所在的时区, 因此需要使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;\\&lt;/code&gt; 来转义.
+如:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;date(&#39;Y-m-d\TH:i&#39;, time());
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://php.net/manual/zh/function.date.php&quot;&gt;date&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3schools.com/jsref/prop_datetime-local_value.asp&quot;&gt;Input DatetimeLocal value Property&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 13 Jul 2016 14:31:39 +0800</pubDate>
+        <link>zeroleaf.com/html/2016/07/13/html-input.html</link>
+        <guid isPermaLink="true">zeroleaf.com/html/2016/07/13/html-input.html</guid>
+        
+        
+        <category>html</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>IOS 浏览器跳转到 AppStore 上指定的 App</title>
+        <description>&lt;p&gt;要想在 Safari 中跳转到 AppStore 中指定的 App, 只要跳转到指定的链接即可,
+链接格式如下:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;itms-apps://itunes.apple.com/app/idYOUR_APP_ID&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;其中, idYOUR_APP_ID 部分的内容可以在 Web 版的 itunes 上找到(在地址栏上).&lt;/p&gt;
+
+&lt;p&gt;同时, 可以通过如下的 js 代码判断是否是 ios 系统:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userAgent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isIOS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;[^&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;+;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt; U;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt; CPU.+Mac OS X/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//ios终端&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://caibaojian.com/browser-ios-or-android.html&quot;&gt;JS判断客户端是否是iOS或者Android&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://segmentfault.com/q/1010000002503244&quot;&gt;iOS浏览器跳转到自己的应用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 12 Jul 2016 10:20:14 +0800</pubDate>
+        <link>zeroleaf.com/ios/2016/07/12/javascript-jump-to-app-in-the-appstore.html</link>
+        <guid isPermaLink="true">zeroleaf.com/ios/2016/07/12/javascript-jump-to-app-in-the-appstore.html</guid>
+        
+        
+        <category>ios</category>
+        
+      </item>
+    
+      <item>
+        <title>JQuery</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;基础&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;文档准备好的时候执行代码&lt;/h3&gt;
+
+&lt;p&gt;原生的 JavaScript 的实现方式:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;welcome&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;但是这种载入方式, 要等所有图片都加载完毕之后才会执行. 因此为了在文档准备好的时候
+尽早的执行代码, 使用如下的代码:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Your code here.&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 或者更精简的方式&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ready!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;NOTE: 不管是上述的哪种方式, 代码只会执行一次(即在文档对应事件触发时), 
+可以使用多个 &lt;code class=&quot;highlighter-rouge&quot;&gt;$(function () {})&lt;/code&gt;, 但里面的代码会在文档准备就绪的时候 &lt;strong&gt;顺序执行&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;核心&lt;/h2&gt;
+
+&lt;h3 id=&quot;vs-&quot;&gt;$ vs $()&lt;/h3&gt;
+
+&lt;p&gt;JQuery 主要有 2 种方法:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;对象方法&lt;/strong&gt;, 定义在 &lt;code class=&quot;highlighter-rouge&quot;&gt;$.fn&lt;/code&gt; 命名空间上(本质上为 &lt;code class=&quot;highlighter-rouge&quot;&gt;proptotype&lt;/code&gt;), 可以与选择器一起工作&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;工具方法&lt;/strong&gt;, 定义在 &lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; 命名空间下, 不能与选择器一起工作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;防止命名冲突&lt;/h3&gt;
+
+&lt;p&gt;默认的, JQuery 使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; 作为 JQuery 的别名, 而如果使用的其他类库也是用了该别名的话,
+就会造成命名冲突.&lt;/p&gt;
+
+&lt;p&gt;以下以 $ 引用其他类库的功能为目的, 阐述解决冲突的办法.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;非冲突模式&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;定义新的别名&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;noConflict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样就可以使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;$j&lt;/code&gt; 来代替 &lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; 了.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;不定义新的别名&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;noConflict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 然后在该作用域里即可安全地使用 $&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;div&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;或者使用一个立即执行的函数表达式:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Your jQuery code here, using the $&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;在其他类库之前加载&lt;/h4&gt;
+
+&lt;p&gt;这种情况下 $ 会被其他的定义给覆盖, 因此不用做其他特殊的操作, 不用别名而且 JQuery
+来操作即可. 如:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;div&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;属性&lt;/h3&gt;
+
+&lt;p&gt;一般来说, 元素的属性包含有对应用来说有用的信息, 因此获取和设置这些值就相当重要.
+JQuery 可以使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;.attr()&lt;/code&gt; 方法来设置和获取属性.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;set&lt;/strong&gt;: .attr(‘key’, ‘val’)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;get&lt;/strong&gt;: .attr(‘key’)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;返回的值为 key 对应的 val &lt;strong&gt;字符串&lt;/strong&gt;, 如果指定的 key 不存在, 则返回 &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;选择元素&lt;/h3&gt;
+
+&lt;p&gt;选择元素主要通过 &lt;em&gt;选择器&lt;/em&gt;, JQuery 支持的选择器见之后的选择器章节.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;测试选择是否包含有任何元素&lt;/h4&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;div.foo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;由于选择器总是返回一个对象, 因此直接判断是不行的, 必须使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;lenght&lt;/code&gt; 属性来判断.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;存储选择的结果&lt;/h4&gt;
+
+&lt;p&gt;默认的, JQuery 不缓存任何的元素, 因此如果反复使用同一个选择器, 则可考虑使用本地变量存储选择的结果.
+但需要注意的是, 如果之后 DOM 结构发生了变化, 选择的结果并不会同步的发生变化.
+如果需要, 使用选择器重新选择即可.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;选择结果的处理&lt;/h3&gt;
+
+&lt;h4 id=&quot;getter--setter&quot;&gt;Getter &amp;amp; Setter&lt;/h4&gt;
+
+&lt;p&gt;一个 JQuery 的方式可以用来读取或者设置选择的值. 当方法调用的时候带有一个参数值, 则是设置其值;
+当一个方法调用的时候不带参数, 则是获取其值. 
+&lt;strong&gt;设置影响的是选择中的所有结果, 而获取则只取选择中第一个结果的值, &lt;code class=&quot;highlighter-rouge&quot;&gt;text()&lt;/code&gt; 方法除外.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Setter 返回的是一个 JQuery 对应, 因此可以链式的调用. 而 Getter 返回的是你获取的实际的值, 
+因此一般不可链式调用. 同时, 在链式调用的时候可以使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;.end()&lt;/code&gt; 函数来结束最近一次的过滤并返回之前选择的结果. 如:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#content&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h3&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new text for the third h3!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Restores the selection to all h3s in #content&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new text for the first h3!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;操纵元素&lt;/h3&gt;
+
+&lt;p&gt;完整的操作元素的 API 见 &lt;a href=&quot;http://api.jquery.com/category/manipulation/&quot;&gt;http://api.jquery.com/category/manipulation/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.addClass()&lt;/code&gt;: 添加 class&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.hasClass()&lt;/code&gt;: 判断结果集中是否有 &lt;strong&gt;任意一个元素&lt;/strong&gt; 含有指定的 class&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.removeClass()&lt;/code&gt;: 移除结果集中每个元素的一个, 多个或者所有的 class&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.toggleClass()&lt;/code&gt;: 为结果集中的每个元素添加或者移除指定的 class, 根据当前元素的状态&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.attr()&lt;/code&gt;: 获取结果集中第一个元素指定属性的值或者给结果集中的每个元素设置属性&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.removeAttr()&lt;/code&gt;: 移除结果集中的每个元素的属性&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prop()&lt;/code&gt;: 或者第一个元素的特性值, 或者设置一个或多个特性值 (特性: 如 selected, checked 等)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.removeProp()&lt;/code&gt;: 移除结果集中每个元素的一个特性&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.after()&lt;/code&gt;: 在匹配元素之后插入指定的内容(做为兄弟节点)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.insertAfter()&lt;/code&gt;: 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.after&lt;/code&gt; 功能一直, 只是语法使用上的差异&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.append()&lt;/code&gt;: 在匹配元素的尾部插入指定的内容(做为子元素)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.appendTo()&lt;/code&gt;: 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.append&lt;/code&gt; 功能一致, 只是语法使用上的差异&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prepend()&lt;/code&gt;: 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.append&lt;/code&gt; 类似, 但是插入的是首部&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prependTo()&lt;/code&gt;: 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.prepend&lt;/code&gt; 功能一致, 只是语法使用上的差异&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.before()&lt;/code&gt;: 类似 &lt;code class=&quot;highlighter-rouge&quot;&gt;.after&lt;/code&gt;, 但是在之前的位置&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.insertBefore()&lt;/code&gt;: 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.before&lt;/code&gt; 功能一致, 只是语法使用上的差异&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.clone()&lt;/code&gt;: 创建一份匹配结果集的深拷贝(会复制后代元素)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.css()&lt;/code&gt;: 获取匹配结果集中第一个元素的计算属性值或者给匹配的所有元素设置一个或多个属性值&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.html()&lt;/code&gt;: 获取结果集中第一个元素的 HTML 内容或者设置每个元素的 HTML 内容&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.detach()&lt;/code&gt;: 从 DOM 中移除匹配的结果集&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.empty()&lt;/code&gt;: 从 DOM 中移除匹配结果集中每个元素的所有子节点&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.remove()&lt;/code&gt;: 从 DOM 中移除结果集中的元素, 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;.detach&lt;/code&gt; 之间的区别在于该方法会移除事件和相关的数据&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.height()&lt;/code&gt;: 获取结果集中第一个元素的计算高度或者设置每个元素的高度&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.width()&lt;/code&gt;: 同上, 但相对的是宽度&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.innerHeight()&lt;/code&gt;: 获取结果集中第一个元素的计算 innerHeight (包括 padding 但不包含 border)或者设置每个元素的 innerHeight&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.innerWidth()&lt;/code&gt;: 同上, 但相对的是 innerWidth&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.outerHeight()&lt;/code&gt;: 获取结果集中第一个元素的计算 outerHeight (包括 padding, border 和可选的 margin)或者设置每个元素的 outerHeight&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.outerWidth()&lt;/code&gt;: 同上, 但对应的是 outerWidth&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery.cssNumber&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery.htmlPrefilter()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.offset()&lt;/code&gt;: 获取第一个元素当前的坐标, 或者设置每个元素相对文档的偏移, 相对文档&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.position()&lt;/code&gt;: 类似 &lt;code class=&quot;highlighter-rouge&quot;&gt;.offset&lt;/code&gt;, 但是相对的是偏移的父元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.replaceWith()&lt;/code&gt;: 用提供的新 content 来替换结果集中的每个元素, 返回移除的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.replaceAll()&lt;/code&gt;: 将每个 target 元素替换为匹配的结果&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.scrollLeft()&lt;/code&gt;: 获取第一个元素水平滚动条的位置或者设置每个元素的值&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.scrollTop()&lt;/code&gt;: 类似 &lt;code class=&quot;highlighter-rouge&quot;&gt;.scrollLeft&lt;/code&gt;, 但对应的是垂直方向的滚动条&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.text()&lt;/code&gt;: 获取文本, 包含元素的后代元素的文本或者设置文本&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.val()&lt;/code&gt;: 或者第一个元素的值或者设置每个元素的值(一般对 input 元素而言)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.wrap()&lt;/code&gt;: 结果集中的每个元素包上一个指定的 HTML 结构&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.unwrap()&lt;/code&gt;: 移除匹配结果集中每个元素的父元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.wrapAll()&lt;/code&gt;: 在匹配的结果集的最外面包上一个指定的 HTML 结构&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.wrapInner()&lt;/code&gt;: 在匹配的结果集中的每个元素的 &lt;strong&gt;内容&lt;/strong&gt; 上包上一个指定的 HTML 结构&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;创建元素&lt;/h4&gt;
+
+&lt;p&gt;通过 JQuery 可以很方便的创建 HTML 元素:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;p&amp;gt;This is a new paragraph&amp;lt;/p&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;li class=\&quot;new\&quot;&amp;gt;new list item&amp;lt;/li&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;a/&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is a &amp;lt;strong&amp;gt;new&amp;lt;/strong&amp;gt; link&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo.html&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;jquery-&quot;&gt;JQuery 对象&lt;/h3&gt;
+
+&lt;p&gt;通过 JQuery 选择器方法选择的都是 JQuery 对象, 一般可认为它是一个集合对象,
+即不管是通过 id 选择器(最多只能有一个匹配结果)或类选择器(可能有多个匹配结果),
+返回的都是同一对象(实现了良好的封装, 对外统一), 该对象包含有如下的一些字段:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;context&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;length&lt;/code&gt;: 结果集中包含的结果数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;prevObject&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;基于索引的对象, 索引基于 0, 数量依据 length 决定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;获取指定索引的对象&lt;/h4&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;// 获取指定索引位置的对象, 返回的仍旧是个 JQuery 对象&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firstHeading&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 获取指定索引位置的对象, 但返回的是 JS 原生对象&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firstHeadingElem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 或&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firstHeadingElem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;全等比较&lt;/h4&gt;
+
+&lt;p&gt;JQuery 会对选择结果创建一个包装对象, 这些包装对象都是唯一的, 
+因此即使通过相同的选择器, 选择的结果也包含完全相同的 DOM 元素, 全等比较的结果也是 &lt;strong&gt;false&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// alerts &quot;false&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果需要比较具体的元素, 使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;.get()&lt;/code&gt; 方法:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$logo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$logo1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$logo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#logo&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$logo2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// alerts &quot;true&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-15&quot;&gt;遍历&lt;/h3&gt;
+
+&lt;p&gt;通过选择器选择出一个 JQuery 对象之后就可以遍历其中包含的元素了,
+遍历一般可分为 3 个部分: 父节点, 子节点, 兄弟节点. JQuery 提供了大量的方法来完成该任务,
+值得注意的是, 这些方法都可以提供一个 &lt;strong&gt;可选的选择器&lt;/strong&gt;, 
+一些可以使用其他的 JQuery 对象来过滤其中的元素.&lt;/p&gt;
+
+&lt;p&gt;相关方法:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.add()&lt;/code&gt;: 创建一个新的 JQuery 对象, 附加选择匹配的对象&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.addBack()&lt;/code&gt;: 添加堆栈中元素集合到当前集合，可选一个选择性的过滤选择器&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.children()&lt;/code&gt;: 获取结果集中每个元素的子元素, 可选地, 指定一个选择器过滤&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.closest()&lt;/code&gt;: 对于结果集中的每个元素, 获取与选择器匹配的第一个元素, 从该元素开始, 并遍历该元素 DOM 中的所有祖先节点&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.parent()&lt;/code&gt;: 获取结果集中每个元素的父元素, 可选地, 指定一个选择器过滤&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.parents()&lt;/code&gt;: 获取结果及中每个元素的祖先元素, 可选地, 指定一个选择器过滤&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.parentsUntil()&lt;/code&gt;: 获取结果集中每个元素的祖先元素, 向上查找但不包含选择器匹配的元素, DOM 节点和 JQuery 对象&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.contents()&lt;/code&gt;: 获取结果集中每个元素的子元素, 包括文本和注释节点&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.each()&lt;/code&gt;: 遍历一个 JQuery 对象, 对结果集中的每个元素执行一个函数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.end()&lt;/code&gt;: 结束当前链路(chain)最近一次过滤操作, 并返回之前状态的选择结果&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.eq()&lt;/code&gt;: 减少结果集中的元素, 使其只包含指定索引的那个元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.filter()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.find()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.first()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.has()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.is()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.last()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.map()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.next()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.nextAll()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.nextUntil()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.not()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.offsetParent()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prev()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prevAll()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.prevUntil()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.siblings()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.slice()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;css-&quot;&gt;CSS, 样式和尺寸&lt;/h3&gt;
+
+&lt;h2 id=&quot;section-16&quot;&gt;选择器&lt;/h2&gt;
+
+&lt;p&gt;JQuery 支持大部分的 CSS3 选择器, 同时附加了一些额外的选择器.
+对于元字符 &lt;code class=&quot;highlighter-rouge&quot;&gt;!&quot;#$%&amp;amp;&#39;()*+,./:;&amp;lt;=&amp;gt;?@[\]^\&lt;/code&gt;{|}~&lt;code class=&quot;highlighter-rouge&quot;&gt;, 使用 &lt;/code&gt;\` 来转意.&lt;/p&gt;
+
+&lt;p&gt;具体包括:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;: 所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:animated&lt;/code&gt;: 在选择器执行时处于动画阶段的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name]&lt;/code&gt;: 包含有指定的属性名, 可以是任意值&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name|=”value”]&lt;/code&gt;: 前缀选择器, 选择属性值等于指定字符串或者以指定字符串开始之后的为一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name*=”value”]&lt;/code&gt;: 包含选择器, 选择属性值包含有指定字符串的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name~=”value”]&lt;/code&gt;: 单词选择器, 选择属性值包含有指定单词的所有元素, 通过空格来分隔单词&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name^=”value”]&lt;/code&gt;: 起始选择器, 选择属性值完全地以指定字符串开始&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name$=”value”]&lt;/code&gt;: 结束选择器, 选择属性值完全地以指定字符串结尾, 比较是大小写敏感的&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name=”value”]&lt;/code&gt;: 相等选择器, 选择属性值完全地等于指定值&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[name!=”value”]&lt;/code&gt;: 不等选择器, 选择要么不包含有指定属性的, 要么属性值不等于指定值的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#id&lt;/code&gt;: id 选择器, 选择指定 id 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.class&lt;/code&gt;: 选择所有包含有指定类的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:button&lt;/code&gt;: 选择所有的 button 元素以及 type 为 button 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:contains(text)&lt;/code&gt;: 选择包含有指定文本的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ancestor descendant&lt;/code&gt;: 后代选择器, ancestor 元素的所有 descendant 元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;element&lt;/code&gt;: 元素选择器, 指定 tag 名称的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:empty&lt;/code&gt;: 选择所有没有子元素(包括文本节点)的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:disabled&lt;/code&gt;: 选择所有 disabled 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:enabled&lt;/code&gt;: 选择所有 enabled 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:focus&lt;/code&gt;: 选择当前获得焦点的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:visible&lt;/code&gt;: 选择所有 visible 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:checked&lt;/code&gt;: 匹配所有 checked 或者 selected 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:selected&lt;/code&gt;: 选择所有 selected 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:even&lt;/code&gt;: 偶数选择器, 所有偶数位的元素, 索引基于 0&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:odd&lt;/code&gt;: 基数选择器, 所有奇数位的元素, 索引基于 0&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:file&lt;/code&gt;: 选择所有 type 为 file 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:first-child&lt;/code&gt;: 选择所有为其父元素的第一个子元素的那些元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:first-of-type&lt;/code&gt;: 选择元素名相同的兄弟节点中的第一个元素的那些元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:last-of-type&lt;/code&gt;: 选择元素名相同的兄弟节点中的最后一个元素的那些元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:last-child&lt;/code&gt;: 选择所有为其父元素的最后一个子元素的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:only-child&lt;/code&gt;: 选择所有是父元素唯一子元素的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:first-of-type&lt;/code&gt;: 选择元素名相同的兄弟节点中的第一个元素的那些元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-of-type()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:nth-last-of-type()&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:last-of-type&lt;/code&gt;: 选择元素名相同的兄弟节点中的最后一个元素的那些元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:only-of-type&lt;/code&gt;: 选择所有有相同标签名称并且没有兄弟节点的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:first&lt;/code&gt;: 选择第一个匹配的 DOM 元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:last&lt;/code&gt;: 最后一个匹配的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:eq()&lt;/code&gt;: 选择匹配集中指定索引位置的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:gt()&lt;/code&gt;: 结果集中索引大于指定值的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:lt()&lt;/code&gt;: 匹配集中索引小于指定值得所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:has()&lt;/code&gt;: 选择那些至少包含有一个元素与指定选择器匹配的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:header&lt;/code&gt;: 所有 header 元素, 如 h1, h2, h3 之类&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:hidden&lt;/code&gt;: 选择所有 hidden 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:image&lt;/code&gt;: 选择所有类型为图片的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:text&lt;/code&gt;: 选择素有 type 为 text 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:password&lt;/code&gt;: 选择所有的 type 为 password 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:reset &lt;/code&gt;: 选择所有 type 为 reset 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:radio&lt;/code&gt;: 选择所有 type 为 radio 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:submit&lt;/code&gt;: 选择所有 type 为 submit 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:checkbox&lt;/code&gt;: 选择所有类型为 checkbox 的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:input&lt;/code&gt;: 选择所有的 input, textarea, 和 button 元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:lang()&lt;/code&gt;: 选择所有指定语言的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[attributeFilter1][attributeFilter2][attributeFilterN]&lt;/code&gt;: 选择满足所有属性过滤的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;selector1, selector2, selectorN&lt;/code&gt;: 满足任意一个选择器的元素的集合&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;parent &amp;gt; child&lt;/code&gt;: 选择 parent 所有的直接 child 子元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;prev + next&lt;/code&gt;: 选择所有匹配 next 的同时是 prev 的立即后继兄弟节点的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;prev ~ siblings&lt;/code&gt;: 选择 prev 之后所有满足 siblings 过滤的兄弟节点&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:not()&lt;/code&gt;: 选择不满足选择器的所有元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:parent&lt;/code&gt;: 选择至少含有一个子元素的元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:root&lt;/code&gt;: 选择 document 的根元素&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:target&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 09 Jul 2016 20:21:19 +0800</pubDate>
+        <link>zeroleaf.com/javascript/jquery/2016/07/09/jquery.html</link>
+        <guid isPermaLink="true">zeroleaf.com/javascript/jquery/2016/07/09/jquery.html</guid>
+        
+        
+        <category>javascript</category>
+        
+        <category>jquery</category>
+        
+      </item>
+    
+      <item>
+        <title>Nginx 常见问题</title>
+        <description>&lt;h2 id=&quot;request-entity-too-large&quot;&gt;413 Request Entity Too Large&lt;/h2&gt;
+
+&lt;p&gt;这个经常会在上传文件时出现, 打开 nginx 主配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx.conf&lt;/code&gt;, 找到 &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; 段添加如下配置:&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;client_max_body_size&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对于 PHP, 还要在 &lt;code class=&quot;highlighter-rouge&quot;&gt;php.ini&lt;/code&gt; 文件中添加如下配置, 否则可能会出现提交数据大小不一致的问题:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;py&quot;&gt;post_max_size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;16M&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;upload_max_filesize&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;16M&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后重启 nginx 即可.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 09 Jul 2016 10:55:18 +0800</pubDate>
+        <link>zeroleaf.com/nginx/2016/07/09/nginx-faqs.html</link>
+        <guid isPermaLink="true">zeroleaf.com/nginx/2016/07/09/nginx-faqs.html</guid>
+        
+        
+        <category>nginx</category>
+        
+      </item>
+    
+      <item>
+        <title>Monolog</title>
+        <description>&lt;p&gt;Monolog 是 PHP 的一个日志库.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;可通过 composer 安装:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;composer require monolog/monolog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;核心概念&lt;/h2&gt;
+
+&lt;p&gt;每个 &lt;code class=&quot;highlighter-rouge&quot;&gt;Logger&lt;/code&gt; 实例都有一个 channel(名称) 和一系列的 handler. 当添加记录到日志中时, 
+可以被所有的 handler 处理. 但每个 handler 都可以决定其是否完全处理了该记录,
+如果是, 则不会被之后的 handler 处理. 该部分的逻辑见 &lt;code class=&quot;highlighter-rouge&quot;&gt;Monolog\Logger&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
+ * Adds a log record.
+ *
+ * @param  int     $level   The logging level
+ * @param  string  $message The log message
+ * @param  array   $context The log context
+ * @return Boolean Whether the record has been processed
+ */
+public function addRecord($level, $message, array $context = array())
+{
+    // ...
+
+    while ($handler = current($this-&amp;gt;handlers)) {
+        if (true === $handler-&amp;gt;handle($record)) {
+            break;
+        }
+
+        next($this-&amp;gt;handlers);
+    }
+
+    // ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;每个 handler 都实现了 &lt;code class=&quot;highlighter-rouge&quot;&gt;Monolog\Handler\HandlerInterface&lt;/code&gt; 接口, 一般来说,
+是否传播记录是通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;$bubble&lt;/code&gt; 属性来控制的, 默认为 &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, 说明传播.&lt;/p&gt;
+
+&lt;p&gt;每个 handler 都包含有一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;Monolog\Formatter\FormatterInterface&lt;/code&gt;, 决定了日志的格式.
+每个 handler 也可以包含有 &lt;code class=&quot;highlighter-rouge&quot;&gt;processors&lt;/code&gt;, 用于在记录日志时对记录进行处理.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;日志级别&lt;/h2&gt;
+
+&lt;p&gt;Monolog 支持 &lt;a href=&quot;http://tools.ietf.org/html/rfc5424&quot;&gt;RFC 5424&lt;/a&gt; 中定义的日志级别:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DEBUG (100)&lt;/code&gt;: 详细的 debug 信息&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INFO (200)&lt;/code&gt;: 令人感兴趣的事件. 如用户登录, SQL 日志等&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NOTICE (250)&lt;/code&gt;: 普通但有意义的事件&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WARNING (300)&lt;/code&gt;: 异常但并不是错误. 如使用废弃的 API, 令人不快的事物但又不是错误&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ERROR (400)&lt;/code&gt;: 运行时异常, 不需要立即的措施但通常需要记录与监控&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CRITICAL (500)&lt;/code&gt;: 批判性的条件 (Critical conditions). 如应用组件不可用, 未预期的异常&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ALERT (550)&lt;/code&gt;: 需要立即采取措施行动的. 如整个网站停止, 数据库不可用等. 这应用触发短信立即通知.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EMERGENCY (600)&lt;/code&gt;: 紧急情况, 系统不可用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;配置&lt;/h2&gt;
+
+&lt;p&gt;一个示例如下:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Monolog\Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Monolog\Handler\StreamHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Monolog\Handler\FirePHPHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create the logger
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;my_logger&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Now add some handlers
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pushHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StreamHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__DIR__&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;/my_app.log&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pushHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FirePHPHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// You can now use your logger
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;My logger is now ready&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;值得注意的是, 后 push 的 handler 最先处理记录, 因此 FirePHPHandler 优先处理.
+这通常在临时添加禁止 bubble 的 handler 是很有用.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;记录中添加额外的数据&lt;/h2&gt;
+
+&lt;p&gt;Monolog 提供了 2 种不同的方式来添加附加信息.&lt;/p&gt;
+
+&lt;h3 id=&quot;logging-context&quot;&gt;使用 logging context&lt;/h3&gt;
+
+&lt;p&gt;日志记录方法的第二个参数 &lt;code class=&quot;highlighter-rouge&quot;&gt;$context&lt;/code&gt;, 通过这个数组, 可以附加额外的信息.&lt;/p&gt;
+
+&lt;p&gt;如:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Adding a new user&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;username&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Seldaek&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;processor&quot;&gt;使用 Processor&lt;/h3&gt;
+
+&lt;p&gt;第二种附加额外数据的方式是使用 Processor, 相比 context, 其是对所有的记录有效的.
+Processor 可以是任意的 callable, 他们会接收到 record 作为参数(一个数组),
+在 callable 中可以改变 record 中的 ertra 字段, 同时在最后返回该 record. 如:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pushProcessor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;extra&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;dummy&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Hello world!&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;record 的格式如下:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$record = array(
+    &#39;message&#39; =&amp;gt; (string) $message,
+    &#39;context&#39; =&amp;gt; $context,
+    &#39;level&#39; =&amp;gt; $level,
+    &#39;level_name&#39; =&amp;gt; $levelName,
+    &#39;channel&#39; =&amp;gt; $this-&amp;gt;name,
+    &#39;datetime&#39; =&amp;gt; $ts,
+    &#39;extra&#39; =&amp;gt; array(),
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;leveraging-channels&quot;&gt;Leveraging channels&lt;/h2&gt;
+
+&lt;p&gt;由于日志对象是对应 channel 的, 因此我们可以将日志记录到不同的 channel 中. 
+实现日志的分类, 通常这在大项目中比较有用. 同时, 值得注意的是, handler 是可以被重用的.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;自定义日志格式&lt;/h2&gt;
+
+&lt;p&gt;示例:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// the default date format is &quot;Y-m-d H:i:s&quot;
+$dateFormat = &quot;Y n j, g:i a&quot;;
+// the default output format is &quot;[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n&quot;
+$output = &quot;%datetime% &amp;gt; %level_name% &amp;gt; %message% %context% %extra%\n&quot;;
+// finally, create a formatter
+$formatter = new LineFormatter($output, $dateFormat);
+
+// Create a handler
+$stream = new StreamHandler(__DIR__.&#39;/my_app.log&#39;, Logger::DEBUG);
+$stream-&amp;gt;setFormatter($formatter);
+// bind it to a logger object
+$securityLogger = new Logger(&#39;security&#39;);
+$securityLogger-&amp;gt;pushHandler($stream);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可见, 我们可以使用 &lt;strong&gt;%record_key%&lt;/strong&gt; 来引用对应 record 中的值, 
+可用的 key 见如上的 record 格式.&lt;/p&gt;
+
+&lt;h2 id=&quot;handlers&quot;&gt;Handlers&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;记录到文件和系统日志&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StreamHandler&lt;/code&gt;: 记录日志到任意的 PHP 流&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RotatingFileHandler&lt;/code&gt;: 记录日志到文件, 每天创建一个新的日志文件.
+ 同时也会删除比 &lt;code class=&quot;highlighter-rouge&quot;&gt;$maxFiles&lt;/code&gt; 更久的日志文件. 
+ 更好的应该使用 &lt;a href=&quot;http://linuxcommand.org/man_pages/logrotate8.html&quot;&gt;logrotate&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SyslogHandler&lt;/code&gt;: 记录日志到系统日志(syslog).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ErrorLogHandler&lt;/code&gt;: 记录日志到 PHP 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;error_log&lt;/code&gt; 函数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProcessHandler&lt;/code&gt;: 记录日志到任意进程的 &lt;strong&gt;STDIN&lt;/strong&gt;, 通过命令指定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;发送提醒和邮件&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NativeMailerHandler&lt;/code&gt;: 通过 PHP 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;mail()&lt;/code&gt; 函数发送邮件&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SwiftMailerHandler&lt;/code&gt;: 通过 &lt;strong&gt;&lt;a href=&quot;http://swiftmailer.org/&quot;&gt;Swfit_Mailer&lt;/a&gt;&lt;/strong&gt; 实例来发送邮件&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PushoverHandler&lt;/code&gt;: 通过 &lt;a href=&quot;https://pushover.net://pushover.net/&quot;&gt;Pushover&lt;/a&gt; API 发送手机短息通知&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HipChatHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FlowdockHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SlackHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SendGridHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MandrillHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FleepHookHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IFTTTHandler&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;记录到指定的服务器和基于网络的记录&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SocketHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AmqpHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GelfHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CubeHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RavenHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ZendMonitorHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NewRelicHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogglyHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RollbarHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SyslogUdpHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogEntriesHandler&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogmaticHandler&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;开发中的记录&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FirePHPHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChromePHPHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BrowserConsoleHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHPConsoleHandler&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;记录到数据库&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RedisHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MongoDBHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CouchDBHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DoctrineCouchDBHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ElasticSearchHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DynamoDbHandler&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;handler&quot;&gt;包装/特别的 Handler&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FingersCrossedHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DeduplicationHandle&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WhatFailureGroupHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BufferHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GroupHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FilterHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SamplingHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NullHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PsrHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TestHandler&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HandlerWrapper&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;formatters&quot;&gt;Formatters&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LineFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HtmlFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NormalizerFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ScalarFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JsonFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WildfireFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChromePHPFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GelfMessageFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogstashFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ElasticaFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogglyFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FlowdockFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MongoDBFormatter&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LogmaticFormatter&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;processors&quot;&gt;Processors&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PsrLogMessageProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IntrospectionProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WebProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MemoryUsageProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MemoryPeakUsageProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProcessIdProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UidProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GitProcessor&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TagProcessor&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/theorchard/monolog-cascade&quot;&gt;monolog-cascade&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md&quot;&gt;Handlers, Formatters and Processors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 07 Jul 2016 19:12:58 +0800</pubDate>
+        <link>zeroleaf.com/log/monolog/2016/07/07/monolog.html</link>
+        <guid isPermaLink="true">zeroleaf.com/log/monolog/2016/07/07/monolog.html</guid>
+        
+        
+        <category>log</category>
+        
+        <category>monolog</category>
+        
+      </item>
+    
+      <item>
+        <title>Mysql 多值字段存储</title>
+        <description>&lt;p&gt;今天碰到一个问题, 需要往一个商品里面添加多个渠道, 照一般的做法是建立一张关联表, 
+然后通过外键关联渠道即可. 但由于工程里面添加表并不是很方便, 同时关联表也会使得
+查询变得复杂且 ‘低效’, 因此并不符合当前实际. 想到只是 2, 3 个渠道, 是否有办法通过
+&lt;strong&gt;位操作&lt;/strong&gt; 来实现, Google 了一番发现是可以的.&lt;/p&gt;
+
+&lt;p&gt;首先, 以二进制位来表示一个具体的渠道, 如:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1 (对应二进制 0001) 表示 渠道 A&lt;/li&gt;
+  &lt;li&gt;2 (对应二进制 0010) 表示 渠道 B&lt;/li&gt;
+  &lt;li&gt;4 (对应二进制 0100) 表示 渠道 C&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这样字段中存储的即是这些渠道对应的数字的和. 如包含有渠道 A, C, 则存储的值为 1 + 4 = 5.&lt;/p&gt;
+
+&lt;p&gt;而之后查询是否包含有某个渠道也可通过如下的语句实现:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- 查询包含有 渠道 B 的数据&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 异或&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;`table_name`&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 按位与&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;`table_name`&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;按位与的实现应该是相对容易理解的, 异或的原理是 &lt;strong&gt;0 ^ 0 = 0&lt;/strong&gt;, &lt;strong&gt;1 ^ 0 = 1&lt;/strong&gt;, &lt;strong&gt;1 ^ 1 = 0&lt;/strong&gt;,
+可见, 不管 0 或 1 异或 0 都不变. 因此, 我们按位异或一个只有一位为 1 的数, 如果对应位上为 1,
+则该位的异或结果为 0, 小于原来原值(即我们需要的结果); 如果对应位上为 0, 则异或的结果为 1,
+大于原值.&lt;/p&gt;
+
+&lt;p&gt;如果要确定 channel 中都包含有哪些渠道, 可以对没一位进行按位与, 结果不为 0 即说明包含有该渠道.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;性能&lt;/h2&gt;
+
+&lt;p&gt;基于该方法的实现性能还是非常高的, 本机测试 按位异或 与 按位与 的实现在单张表的情况下性能差不多.
+但 EXPLAIN 的结果为: 异或中的 &lt;em&gt;filtered&lt;/em&gt; 为 &lt;strong&gt;33.33&lt;/strong&gt; 而 按位与 中的为 &lt;strong&gt;100.00&lt;/strong&gt;, 
+filtered 的值具体说明啥现在还不是很了解?&lt;/p&gt;
+
+&lt;p&gt;但不管如何, 都是要比基于关联表的实现要快相当多!&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;不足&lt;/h2&gt;
+
+&lt;p&gt;由于每个标识都要占一位, 而 mysql 的 int 为 4 字节, 即最多只能存储 32 个标识,
+因此对于标识量很多的数据, 这种实现方式不一定适合.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000002965124&quot;&gt;https://segmentfault.com/a/1190000002965124&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 06 Jul 2016 22:16:32 +0800</pubDate>
+        <link>zeroleaf.com/mysql/2016/07/06/mysql-field-mutiple-value.html</link>
+        <guid isPermaLink="true">zeroleaf.com/mysql/2016/07/06/mysql-field-mutiple-value.html</guid>
+        
+        
+        <category>mysql</category>
+        
+      </item>
+    
+      <item>
+        <title>API Blueprint</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;术语&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Action&lt;/code&gt;: 表示一次 HTTP 交互(请求, 响应), Action 是在 &lt;em&gt;resource&lt;/em&gt; 里用 HTTP 请求方法指定的&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;API&lt;/code&gt;: HTTP 应用编程接口(HTTP Application programming interface). 可能指一个 API 的描述&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;API Blueprint&lt;/code&gt;: Api Blueprint 语言. 一个在 API Blueprint 文件中用于描述 API 的格式&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;: 原子数据&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Attribute&lt;/code&gt;: 基于上下文, 可能是消息体的数据结结构, 资源的属性, Action 的属性等&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Blueprint&lt;/code&gt;: 一个 API 描述&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Data Structure&lt;/code&gt;: 一个特定的数据集合(data organization), 或者其描述. 用 &lt;em&gt;MSON&lt;/em&gt; 来描述&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Entity&lt;/code&gt;: &lt;em&gt;payload&lt;/em&gt; 中传输的 &lt;strong&gt;Entity&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Header&lt;/code&gt;: 消息头&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Method&lt;/code&gt;: HTTP 请求方法&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message&lt;/code&gt;: HTTP 事务消息&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message body&lt;/code&gt;: 表示 HTTP 事务消息体的一个 &lt;em&gt;Asset&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Message header&lt;/code&gt;: 表示 HTTP 事务消息头的一个 &lt;em&gt;Asset&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Parameter&lt;/code&gt;: 一个 &lt;em&gt;URI template&lt;/em&gt; 变量&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payload&lt;/code&gt;: 一个 HTTP 事务消息&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Property&lt;/code&gt;: &lt;em&gt;Entity&lt;/em&gt; 的字段&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Request&lt;/code&gt;: 包含一个指定 HTTP 请求的 &lt;em&gt;Payload&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Response&lt;/code&gt;: 包含一个指定 HTTP 响应的 &lt;em&gt;Payload&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Resource&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Resource Model&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Resource Set&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Trait&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Schema&lt;/code&gt;:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URI template&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;详见 &lt;a href=&quot;https://apiblueprint.org/documentation/glossary.html&quot;&gt;Glossary of Terms&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;api-blueprint-&quot;&gt;API Blueprint 规范&lt;/h2&gt;
+
+&lt;p&gt;原文请查看 &lt;a href=&quot;https://apiblueprint.org/documentation/specification.html&quot;&gt;API Blueprint Specification&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jul 2016 22:37:26 +0800</pubDate>
+        <link>zeroleaf.com/tool/api/2016/07/05/apiblueprint.html</link>
+        <guid isPermaLink="true">zeroleaf.com/tool/api/2016/07/05/apiblueprint.html</guid>
+        
+        
+        <category>tool</category>
+        
+        <category>api</category>
+        
+      </item>
+    
+      <item>
+        <title>Navicat</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;快捷键&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;查看/查询&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CMD-R&lt;/code&gt;: 执行&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SHIFT-CMD-R&lt;/code&gt;: 执行选中的语句&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;详见 &lt;a href=&quot;https://www.navicat.com/manual/online_manual/en/navicat/mac_manual/KeyShortcut.html&quot;&gt;https://www.navicat.com/manual/online_manual/en/navicat/mac_manual/KeyShortcut.html&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jul 2016 17:37:26 +0800</pubDate>
+        <link>zeroleaf.com/tool/navicat/2016/07/05/navicat.html</link>
+        <guid isPermaLink="true">zeroleaf.com/tool/navicat/2016/07/05/navicat.html</guid>
+        
+        
+        <category>tool</category>
+        
+        <category>navicat</category>
+        
+      </item>
+    
+      <item>
+        <title>Tmux</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install tmux
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;快捷键&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;基本操作&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tmux new -s session-name&lt;/code&gt;: 开启一个新的 session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tmux ls&lt;/code&gt;: 列出所有的 sesion&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl-b d&lt;/code&gt;: detach 当前 session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tmux attach [-t &amp;lt;session-name&amp;gt;]&lt;/code&gt;: attach 一个 session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tmux kill-session [-t &amp;lt;session-name&amp;gt;]&lt;/code&gt;: kill 一个 session&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 05 Jul 2016 08:05:49 +0800</pubDate>
+        <link>zeroleaf.com/tmux/2016/07/05/tmux.html</link>
+        <guid isPermaLink="true">zeroleaf.com/tmux/2016/07/05/tmux.html</guid>
+        
+        
+        <category>tmux</category>
+        
+      </item>
+    
+      <item>
+        <title>无状态 API 请求</title>
+        <description>&lt;p&gt;最近在使用 Laravel 项目开发, 里面集成了 &lt;a href=&quot;https://github.com/dingo/api&quot;&gt;dingo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;在 api 请求里, 用 &lt;strong&gt;session&lt;/strong&gt; 存储了用户的 id, 但是后来发现页面的请求 cookie 跟 ajax
+请求的 cookie 值是不一致的, 从而导致无法从 session 里面读取到相应的数据. 
+Google 了一番说是该问题并没有什么比较好的解决方法, 另一方面也有可能是应用程序设计的不合理.
+照着这个思路, 细想之下可能确实如此, &lt;strong&gt;api 请求的话最好是无状态的, 需要的参数由客户端传递,&lt;/strong&gt;
+这样也利于做规模处理.&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Representational_state_transfer#Stateless&quot;&gt;https://en.wikipedia.org/wiki/Representational_state_transfer#Stateless&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/3105296/if-rest-applications-are-supposed-to-be-stateless-how-do-you-manage-sessions&quot;&gt;http://stackoverflow.com/questions/3105296/if-rest-applications-are-supposed-to-be-stateless-how-do-you-manage-sessions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 04 Jul 2016 16:48:33 +0800</pubDate>
+        <link>zeroleaf.com/2016/07/04/stateless-api.html</link>
+        <guid isPermaLink="true">zeroleaf.com/2016/07/04/stateless-api.html</guid>
+        
+        
+      </item>
+    
   </channel>
 </rss>
